@@ -25,7 +25,7 @@ class Student {
         private final String processor;
         private final int ram;
 
-        public  Laptop() {
+        {
             this.model = "HP";
             this.processor = "i7";
             this.ram = 16;
