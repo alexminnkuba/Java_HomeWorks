@@ -1,0 +1,32 @@
+CREATE DATABASE hospitalSystemDB;
+ USE hospitalSystemDB;
+
+-- CREATE TABLE doctors (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     full_name VARCHAR(255) NOT NULL,
+--     specialization VARCHAR(100) NOT NULL
+-- );
+
+-- CREATE TABLE patients (
+--     id              INT AUTO_INCREMENT PRIMARY KEY,
+--     full_name       VARCHAR(255)     NOT NULL,
+--     email           VARCHAR(255)     UNIQUE NOT NULL,
+--     birth_date      DATE             NOT NULL,
+--     password_hash   VARCHAR(100)     NOT NULL,
+--     created_at      DATETIME         NOT NULL DEFAULT CURRENT_TIMESTAMP
+-- );
+
+-- CREATE TABLE IF NOT EXISTS  (
+--     id               INT AUTO_INCREMENT PRIMARY KEY,
+--     patient_id       INT NOT NULL,
+--     doctor_id        INT NOT NULL,
+--     appointment_date VARCHAR(20) NOT NULL,          -- формат: '2026-03-15 14:30'
+--     created_at       DATETIME DEFAULT CURRENT_TIMESTAMP,
+--     FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE CASCADE,
+--     FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE CASCADE
+-- );
+
+INSERT INTO doctors (full_name, specialization) VALUES
+('Владислав Викторович', 'Терапевт'),
+('Виктор Владимирович',  'Окулист'),
+('Сергей Львович',       'Хирург');
