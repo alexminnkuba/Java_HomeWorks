@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+h2{
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 1200px;
+    background: #0cbc05;
+    border-radius: 6px 6px 0 0;
+    color: white;
+}
+
+.danger{
+    background: red;
+}
+
+.container, .list{
+    width: 1200px;
+    margin: 50px auto;
+    border: 1px solid silver;
+    border-radius: 6px;
+}
+
+.content{
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a{
+    display: block;
+    text-align: center;
+    padding: 15px;
+    background: #8fd0fb;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+a:hover{
+    background: #8F9CFBFF;
+}
+
+.nav-reg{
+    margin-bottom: 10px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid silver;
+    padding: 10px;
+    text-align: left;
+}
+
+th{
+    background: #216920;
+    color: white;
+}
+
+input, button{
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+button:hover{
+    cursor: pointer;
+    color: white;
+    background: #216920FF;
+}
+
+.submit{
+    background: #93fb8f;
+    font-weight: bold;
+}
+
+.submit:hover{
+    cursor: pointer;
+    color: white;
+    background: #216920FF;
+}
+
+.reset{
+    background: #f88f63;
+    font-weight: bold;
+}
+
+.reset:hover{
+    cursor: pointer;
+    color: white;
+    background: #63231DFF;
+}
+
+.delete-btn {
+    text-align: center;
+    padding: 15px;
+    background: #c0392b;
+    color: #333;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: stretch;
+    font-size: 16px;
+}
+
+.delete-btn:hover{
+    background: #5d1c17;
+}
+
+form{
+    margin: 0;
+}
+
