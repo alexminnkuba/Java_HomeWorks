@@ -1,3 +1,5 @@
+<%@ page import="org.ee.jakarta.hotelmanagersystem.dao.ManagerDao" %>
+<%@ page import="org.ee.jakarta.hotelmanagersystem.db.DBConnect" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
@@ -16,11 +18,22 @@
     <div class="wrap">
         <h2>Панель администратора</h2>
 
+        <c:if test="${not empty sucMsg}">
+            <p class="center text-success fs-3">${sucMsg}</p>
+            <c:remove var="sucMsg" scope="session"/>
+        </c:if>
+        <c:if test="${not empty errorMsg}">
+            <p class="center text-danger fs-3">${errorMsg}</p>
+            <c:remove var="errorMsg" scope="session"/>
+        </c:if>
+
         <div class="admin__block">
             <div class="admin__element">
+                <a href="manager.jsp" style="text-decoration: none;">
                 <img src="../img/admin_1.jpg" alt="">
                 <h3>Менеджеры</h3>
-                <p>8</p>
+                <p><%= new ManagerDao(DBConnect.getConn()).getAllManagers().size() %></p>
+                </a>
             </div>
             <div class="admin__element">
                 <img src="../img/admin_2.jpg" alt="">
@@ -42,7 +55,7 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="addRoomType" method="post">
+                    <form action="../addRoomType" method="post">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Добавить тип номера</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

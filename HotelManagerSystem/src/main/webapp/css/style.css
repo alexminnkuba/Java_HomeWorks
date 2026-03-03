@@ -300,3 +300,11 @@ footer{
 .center{
     text-align: center;
 }
+
+.manager{
+    margin-top: 20px;
+}
+
+.wrap h3{
+    text-align: center;
+}
