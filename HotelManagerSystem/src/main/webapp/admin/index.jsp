@@ -1,5 +1,8 @@
 <%@ page import="org.ee.jakarta.hotelmanagersystem.dao.ManagerDao" %>
 <%@ page import="org.ee.jakarta.hotelmanagersystem.db.DBConnect" %>
+<%@ page import="org.ee.jakarta.hotelmanagersystem.dao.GuestDao" %>
+<%@ page import="org.ee.jakarta.hotelmanagersystem.dao.RoomDao" %>
+<%@ page import="org.ee.jakarta.hotelmanagersystem.dao.RoomTypeDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
@@ -30,25 +33,35 @@
         <div class="admin__block">
             <div class="admin__element">
                 <a href="manager.jsp" style="text-decoration: none;">
-                <img src="../img/admin_1.jpg" alt="">
-                <h3>Менеджеры</h3>
-                <p><%= new ManagerDao(DBConnect.getConn()).getAllManagers().size() %></p>
+                    <img src="../img/admin_1.jpg" alt="">
+                    <h3>Менеджеры</h3>
+                    <p><%= new ManagerDao(DBConnect.getConn()).getAllManagers().size() %>
+                    </p>
                 </a>
             </div>
             <div class="admin__element">
-                <img src="../img/admin_2.jpg" alt="">
-                <h3>Гости</h3>
-                <p>142</p>
+                <a href="guest.jsp" style="text-decoration: none;">
+                    <img src="../img/admin_2.jpg" alt="">
+                    <h3>Гости</h3>
+                    <p><%= new GuestDao(DBConnect.getConn()).getAllGuests().size() %>
+                    </p>
+                </a>
             </div>
             <div class="admin__element">
-                <img src="../img/admin_3.jpg" alt="">
-                <h3>Номера</h3>
-                <p>67</p>
+                <a href="room.jsp" style="text-decoration: none;">
+                    <img src="../img/admin_3.jpg" alt="">
+                    <h3>Номера</h3>
+                    <p><%= new RoomDao(DBConnect.getConn()).getAllRooms().size() %>
+                    </p>
+                </a>
             </div>
             <div class="admin__element" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <img src="../img/admin_4.jpg" alt="">
-                <h3>Типы номеров</h3>
-                <p>12</p>
+                <a href="" style="text-decoration: none;">
+                    <img src="../img/admin_4.jpg" alt="">
+                    <h3>Типы номеров</h3>
+                    <p><%= new RoomTypeDao(DBConnect.getConn()).getAllRoomTypes().size() %>
+                    </p>
+                </a>
             </div>
         </div>
 
