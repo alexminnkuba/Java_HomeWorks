@@ -56,7 +56,7 @@
                 </a>
             </div>
             <div class="admin__element" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <a href="" style="text-decoration: none;">
+                <a href="#" style="text-decoration: none;">
                     <img src="../img/admin_4.jpg" alt="">
                     <h3>Типы номеров</h3>
                     <p><%= new RoomTypeDao(DBConnect.getConn()).getAllRoomTypes().size() %>

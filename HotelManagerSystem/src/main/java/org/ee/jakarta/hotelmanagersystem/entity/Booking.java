@@ -1,29 +1,37 @@
 package org.ee.jakarta.hotelmanagersystem.entity;
 
+import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Booking {
     private int id;
     private int guestId;
     private String guestName;
-    private int roomTypeId;
+    private int roomId;
+    private String roomNumber;
     private String roomTypeName;
     private Date checkIn;
     private Date checkOut;
+    private BigDecimal totalPrice;
     private String status;
+    private java.sql.Timestamp createdAt;
 
     public Booking() {
     }
 
-    public Booking(int id, int guestId, String guestName, int roomTypeId, String roomTypeName, Date checkIn, Date checkOut, String status) {
+    public Booking(int id, int guestId, String guestName, int roomId, String roomNumber, String roomTypeName, Date checkIn, Date checkOut, BigDecimal totalPrice, String status, Timestamp createdAt) {
         this.id = id;
         this.guestId = guestId;
         this.guestName = guestName;
-        this.roomTypeId = roomTypeId;
+        this.roomId = roomId;
+        this.roomNumber = roomNumber;
         this.roomTypeName = roomTypeName;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
+        this.totalPrice = totalPrice;
         this.status = status;
+        this.createdAt = createdAt;
     }
 
     public int getId() {
@@ -50,12 +58,20 @@ public class Booking {
         this.guestName = guestName;
     }
 
-    public int getRoomTypeId() {
-        return roomTypeId;
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setRoomTypeId(int roomTypeId) {
-        this.roomTypeId = roomTypeId;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
+    }
+
+    public String getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
     public String getRoomTypeName() {
@@ -82,11 +98,27 @@ public class Booking {
         this.checkOut = checkOut;
     }
 
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 }

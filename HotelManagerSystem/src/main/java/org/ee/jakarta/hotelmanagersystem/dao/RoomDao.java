@@ -3,6 +3,7 @@ package org.ee.jakarta.hotelmanagersystem.dao;
 import org.ee.jakarta.hotelmanagersystem.entity.Room;
 import org.ee.jakarta.hotelmanagersystem.entity.RoomStatus;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -141,5 +142,23 @@ public class RoomDao {
             e.printStackTrace();
         }
         return flag;
+    }
+
+    public BigDecimal getPricePerNight(int roomId){
+        String sql = "SELECT price_per_night FROM room WHERE id = ?";
+
+        try{
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, roomId);
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                return rs.getBigDecimal("price_per_night");
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

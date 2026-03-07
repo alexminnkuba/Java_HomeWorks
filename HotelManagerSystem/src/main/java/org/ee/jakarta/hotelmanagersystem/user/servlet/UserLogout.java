@@ -1,4 +1,4 @@
-package org.ee.jakarta.hotelmanagersystem;
+package org.ee.jakarta.hotelmanagersystem.user.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
