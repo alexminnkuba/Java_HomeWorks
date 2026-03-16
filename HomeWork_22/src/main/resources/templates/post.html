@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post.title}">Заголовок поста</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="post">
+        <h1 th:text="${post.title}">Заголовок поста</h1>
+        <div class="meta">
+            <div>Категория: <strong th:text="${post.category}">Категория</strong></div>
+            <div>Автор: <span th:text="${post.author}">Автор</span></div>
+            <div>ID поста: <span th:text="${post.id}">ID</span></div>
+        </div>
+        <div class="content" th:text="${post.content}">
+            Полное содержание поста...
+        </div>
+        <div class="related">
+            <div th:if="${post.category == 'Программирование'}">
+                <h3>Программирование</h3>
+                <p>Это техническая статья. Хотите изучить больше?</p>
+                <a th:href="${relatedLink}" th:text="${relatedText}">Другие статьи</a>
+            </div>
+            <div th:if="${post.category == 'Путешествия'}">
+                <h3>Путешествия</h3>
+                <p>Вдохновляющие истории о путешествиях!</p>
+                <a th:href="${relatedLink}" th:text="${relatedText}">Другие истории</a>
+            </div>
+            <div th:unless="${post.category == 'Программирование' or post.category == 'Путешествия'}">
+                <a th:href="${relatedLink}" th:text="${relatedText}">На главную</a>
+            </div>
+        </div>
+        <a href="/index" class="back-link">← Вернуться ко всем записям</a>
+    </div>
+</div>
+</body>
+</html>
