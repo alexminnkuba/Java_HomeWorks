@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" th:fragment="menu">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" th:href="@{/}">🍲 Вкусный Мир</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <th:block th:if="${user != null}">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/user/home}">Мои рецепты</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/user/profile}">Профиль</a></li>
+                </th:block>
+                <th:block th:if="${user == null}">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/register}">Регистрация</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/signin}">Войти</a></li>
+                </th:block>
+            </ul>
+        </div>
+    </div>
+</nav>

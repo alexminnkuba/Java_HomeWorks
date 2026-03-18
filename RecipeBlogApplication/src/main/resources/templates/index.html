@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru" th:replace="~{base::layout(~{::section})}">
+<body>
+<section>
+    <div class="container-fluid bg-dark text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-4">Добро пожаловать во Вкусный Мир!</h1>
+            <p class="lead">Лучшие рецепты со всего света</p>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Категории</h5>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">Русская кухня</a>
+                            <a href="#" class="list-group-item list-group-item-action">Итальянская кухня</a>
+                            <a href="#" class="list-group-item list-group-item-action">Азиатская кухня</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <h3 class="text-center mb-4">Популярные рецепты</h3>
+                <div class="row g-4">
+                    <!-- Борщ -->
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/img/img1.jpeg" class="card-img-top" alt="Борщ">
+                            <div class="card-body text-center">
+                                <h5>Классический борщ</h5>
+                                <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/img/img2.jpg" class="card-img-top" alt="Карбонара">
+                            <div class="card-body text-center">
+                                <h5>Спагетти Карбонара</h5>
+                                <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/img/img3.jpg" class="card-img-top" alt="Калифорния">
+                            <div class="card-body text-center">
+                                <h5>Ролл Калифорния</h5>
+                                <a href="#" class="btn btn-outline-primary">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
