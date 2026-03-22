@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru" th:replace="~{base :: layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Категории — Админ-панель</title>
+</head>
+<body>
+<section class="py-5">
+    <div class="container">
+        <h1 class="text-center mb-4">Управление категориями</h1>
+
+        <div th:if="${session.sucMsg}" class="alert alert-success alert-dismissible fade show text-center" role="alert">
+            <span th:text="${session.sucMsg}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div th:if="${session.errorMsg}" class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+            <span th:text="${session.errorMsg}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="card mb-5 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Добавить новую категорию</h5>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/admin/categories}" th:object="${newCategory}" method="post">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Название категории</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="name" required placeholder="Например: Итальянская кухня">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">Существующие категории</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Название</th>
+                        <th class="text-end">Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="cat : ${categories}">
+                        <td th:text="${cat.id}"></td>
+                        <td>
+                            <span th:if="${editId != null and editId == cat.id}">
+                                <form th:action="@{/admin/categories/update}" method="post" class="d-inline">
+                                    <input type="hidden" name="id" th:value="${cat.id}">
+                                    <input type="text" name="name" th:value="${cat.name}" class="form-control form-control-sm d-inline-block w-auto" required>
+                                    <button type="submit" class="btn btn-sm btn-success ms-2">Сохранить</button>
+                                    <a th:href="@{/admin/categories}" class="btn btn-sm btn-secondary ms-1">Отмена</a>
+                                </form>
+                            </span>
+                            <span th:unless="${editId != null and editId == cat.id}" th:text="${cat.name}"></span>
+                        </td>
+                        <td class="text-end">
+                            <span th:unless="${editId != null and editId == cat.id}">
+                                <a th:href="@{/admin/categories/edit/{id}(id=${cat.id})}" class="btn btn-sm btn-outline-primary">Изменить</a>
+                                <a th:href="@{/admin/categories/delete/{id}(id=${cat.id})}"
+                                   class="btn btn-sm btn-outline-danger"
+                                   onclick="return confirm('Удалить категорию');">Удалить</a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(categories)}">
+                        <td colspan="3" class="text-center text-muted py-4">Категорий пока нет</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a th:href="@{/admin/dashboard}" class="btn btn-outline-secondary">← Назад</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>

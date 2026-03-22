@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru" th:replace="~{base :: layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ-панель — Вкусный Мир</title>
+</head>
+<body>
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <h1 class="text-center mb-5">Админ-панель</h1>
+
+                <div th:if="${adminName}" class="alert alert-info text-center">
+                    Добро пожаловать, <strong th:text="${adminName}"></strong>!
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <a th:href="@{/admin/posts/new}" class="text-decoration-none">
+                            <div class="card h-100 shadow-sm border-primary">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-plus-circle fs-1 text-primary mb-3 d-block"></i>
+                                    <h5 class="card-title">Добавить рецепт</h5>
+                                    <p class="card-text text-muted">Новый пост / рецепт в блог</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a th:href="@{/admin/categories}" class="text-decoration-none">
+                            <div class="card h-100 shadow-sm border-warning">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-tags fs-1 text-warning mb-3 d-block"></i>
+                                    <h5 class="card-title">Категории</h5>
+                                    <p class="card-text text-muted">Управление категориями кухонь</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a th:href="@{/admin/users}" class="text-decoration-none">
+                            <div class="card h-100 shadow-sm border-success">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-people fs-1 text-success mb-3 d-block"></i>
+                                    <h5 class="card-title">Пользователи</h5>
+                                    <p class="card-text text-muted">Список и роли</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a th:href="@{/admin/posts}" class="text-decoration-none">
+                            <div class="card h-100 shadow-sm border-info">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-list-ul fs-1 text-info mb-3 d-block"></i>
+                                    <h5 class="card-title">Все рецепты</h5>
+                                    <p class="card-text text-muted">Управление публикациями</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a th:href="@{/}" class="text-decoration-none">
+                            <div class="card h-100 shadow-sm border-secondary">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-house-door fs-1 text-secondary mb-3 d-block"></i>
+                                    <h5 class="card-title">На главную</h5>
+                                    <p class="card-text text-muted">Вернуться на сайт</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-5">
+                    <a th:href="@{/logout}" class="btn btn-outline-danger btn-lg px-5">
+                        Выйти из аккаунта
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

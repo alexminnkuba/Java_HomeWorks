@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru" th:replace="~{base :: layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post != null and post.id != null} ? 'Редактировать рецепт' : 'Новый рецепт'"></title>
+</head>
+<body>
+<section class="py-5">
+    <div class="container">
+        <h1 class="text-center mb-4" th:text="${post != null and post.id != null} ? 'Редактировать рецепт' : 'Добавить новый рецепт'"></h1>
+        <div th:if="${session.sucMsg}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${session.sucMsg}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div th:if="${session.errorMsg}" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${session.errorMsg}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form th:action="@{/admin/posts/save}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" th:value="${post?.id}" />
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Заголовок рецепта *</label>
+                        <input type="text" name="title" class="form-control" id="title"
+                               th:value="${post?.title}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Описание / рецепт *</label>
+                        <textarea name="content" class="form-control" id="content" rows="10" required
+                                  th:text="${post?.content}"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryId" class="form-label">Категория *</label>
+                        <select name="categoryId" class="form-select" id="categoryId" required>
+                            <option value="">— Выберите категорию —</option>
+                            <option th:each="cat : ${categories}"
+                                    th:value="${cat.id}"
+                                    th:text="${cat.name}"
+                                    th:selected="${post != null and post.category != null and post.category.id == cat.id}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Фото блюда</label>
+                        <input type="file" name="file" class="form-control" id="file" accept="image/*">
+                        <div th:if="${post?.image}" class="form-text text-muted">
+                            Текущее фото: <span th:text="${post.image}"></span>
+                            <br>Оставьте поле пустым, чтобы сохранить текущее фото
+                        </div>
+                        <div th:unless="${post?.image}" class="form-text">
+                            Загрузите фото блюда (необязательно)
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <a th:href="@{/admin/posts}" class="btn btn-outline-secondary">Отмена</a>
+                        <button type="submit" class="btn btn-primary">
+                            <span th:text="${post != null and post.id != null} ? 'Сохранить изменения' : 'Добавить рецепт'"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a th:href="@{/admin/dashboard}" class="btn btn-outline-secondary">← Назад в дашборд</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>`

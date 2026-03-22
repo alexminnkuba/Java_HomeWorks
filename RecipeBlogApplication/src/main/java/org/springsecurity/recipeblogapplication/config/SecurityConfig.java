@@ -10,10 +10,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    private AuthenticationSuccessHandler successHandler;
+
+    public SecurityConfig(AuthenticationSuccessHandler successHandler) {
+        this.successHandler = successHandler;
+    }
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
@@ -26,7 +33,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationProvider daoAuthenticationProvider(){
+    public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider(userDetailsService());
         daoAuthenticationProvider.setPasswordEncoder(bCryptPasswordEncoder());
         return daoAuthenticationProvider;
@@ -35,15 +42,18 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(request -> request
-                        .requestMatchers("/", "/register", "/signin", "/saveUser").permitAll()
-                        .requestMatchers("/user/**").authenticated()
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/", "/register", "/signin", "/saveUser",
+                                "/css/**", "/img/**", "/js/**").permitAll()
+                        .requestMatchers("/user/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                        .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
+                        .anyRequest().authenticated()
                 )
                 .csrf(csrf -> csrf.disable())
                 .formLogin(form -> form
                         .loginPage("/signin")
                         .loginProcessingUrl("/userLogin")
-                        .defaultSuccessUrl("/user/profile", true)
+                        .successHandler(successHandler)
                         .permitAll()
                 )
                 .logout(logout -> logout

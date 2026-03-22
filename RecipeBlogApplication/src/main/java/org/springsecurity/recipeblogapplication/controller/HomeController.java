@@ -8,11 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springsecurity.recipeblogapplication.entity.Post;
 import org.springsecurity.recipeblogapplication.entity.User;
 import org.springsecurity.recipeblogapplication.repository.UserRepo;
+import org.springsecurity.recipeblogapplication.service.PostService;
 import org.springsecurity.recipeblogapplication.service.UserService;
 
 import java.security.Principal;
+import java.util.Comparator;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -21,6 +25,9 @@ public class HomeController {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private PostService postService;
 
     @ModelAttribute
     public void commonUser(Principal principal, Model model){
@@ -62,4 +69,5 @@ public class HomeController {
         session.setAttribute("msg", "Регистрация прошла успешно!");
         return "redirect:/register";
     }
+
 }
