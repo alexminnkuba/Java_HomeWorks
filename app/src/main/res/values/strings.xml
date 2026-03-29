@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Android_HomeWork_2</string>
+    <string name="number_1">Первое число</string>
+    <string name="number_2">Второе число</string>
+    <string name="empty">       </string>
+    <string name="sum">+</string>
+    <string name="sub">-</string>
+    <string name="mul">*</string>
+    <string name="div">/</string>
+</resources>
