@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_fon"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/level1"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/button_close"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:paddingHorizontal="20dp"
+            android:layout_gravity="start"
+            android:background="@drawable/button_stroke_dark_red_press_white"
+            android:gravity="center"
+            android:text="@string/back"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/preview_img"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:layout_marginVertical="50dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/number_lev_one" />
+
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="50dp"
+            android:text="@string/level_one"
+            android:textColor="@color/black_opacity"
+            android:textSize="24sp"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/button_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_stroke_dark_red_press_white"
+            android:paddingHorizontal="40dp"
+            android:text="@string/text_continue"
+            android:textColor="@color/dark_red"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

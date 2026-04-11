@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/prev_lev_background_one"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="55dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/button_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:background="@drawable/button_stroke_dark_red_press_white"
+            android:gravity="center"
+            android:text="@string/x"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/text_description_end"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="50dp"
+            android:text="@string/level_one_end"
+            android:textColor="@color/black_opacity"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_stroke_dark_red_press_white"
+            android:paddingHorizontal="40dp"
+            android:text="@string/text_continue"
+            android:textColor="@color/dark_red"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
