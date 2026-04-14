@@ -11,25 +11,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MathQuiz">
-
-        <!-- Главный экран -->
+        <activity
+            android:name=".Level2"
+            android:exported="false" />
+        <activity android:name=".Level3"
+            android:exported="false" />
+        <activity android:name=".Level4"
+            android:exported="false" />
+        <activity android:name=".Level5"
+            android:exported="false" />
+        <activity
+            android:name=".BaseLevelActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".GameLevels"
             android:exported="false" />
-
         <activity
             android:name=".Level1"
             android:exported="false" />
-
     </application>
 
 </manifest>
