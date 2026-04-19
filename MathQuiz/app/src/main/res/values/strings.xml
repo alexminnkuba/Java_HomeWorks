@@ -60,4 +60,11 @@
     <string name="Three">3</string>
     <string name="Four">4</string>
     <string name="five">5</string>
+    <string name="registration">Регистрация</string>
+    <string name="login">Войти</string>
+    <string name="password">Пароль</string>
+    <string name="log_in">Логин</string>
+    <string name="log">Вход</string>
+    <string name="Name">Имя пользователя</string>
+    <string name="reg">Зарегистрироваться</string>
 </resources>

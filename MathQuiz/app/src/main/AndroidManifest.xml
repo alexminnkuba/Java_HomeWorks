@@ -12,13 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathQuiz">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".Level2"
             android:exported="false" />
-        <activity android:name=".Level3"
+        <activity
+            android:name=".Level3"
             android:exported="false" />
-        <activity android:name=".Level4"
+        <activity
+            android:name=".Level4"
             android:exported="false" />
-        <activity android:name=".Level5"
+        <activity
+            android:name=".Level5"
             android:exported="false" />
         <activity
             android:name=".BaseLevelActivity"
